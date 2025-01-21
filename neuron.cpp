@@ -10,15 +10,13 @@ using namespace std;
  * 
  * @param new_n 
  */
-Neuron::Neuron(int new_n, double new_bias, double* new_weights, double* new_inputs){
+Neuron::Neuron(int new_n, double new_bias, double* new_weights){
     this->set_n(new_n);                     // Set the value of n
 
     this->weights = new double[n];          // Create the pointer to the weights array
-    this->inputs = new double[n];           // Create the pointer to the inputs array
 
     this->set_bias(new_bias);               // Initialise the bias
     this->set_weights(new_weights);         // Initialise the weights
-    this->set_inputs(new_inputs);           // Initialise the inputs
 }
 
 /**
@@ -27,7 +25,6 @@ Neuron::Neuron(int new_n, double new_bias, double* new_weights, double* new_inpu
  */
 Neuron::~Neuron(){
     delete[] this->weights;
-    delete[] this->inputs;
 }
 
 /**
@@ -65,18 +62,12 @@ void Neuron::set_weights(double* new_weights){
 }
 
 /**
- * @brief Setter function to change the values of the inputs. The pointer remains the same, however each
- * element is updated to reflect the new array.
+ * @brief Returns the activation of the neuron for a given (pointer to an) array of inputs.
  * 
- * @param new_inputs 
+ * @param inputs 
+ * @return double 
  */
-void Neuron::set_inputs(double* new_inputs){
-    for(int i = 0; i < this->n; i++){
-        this->inputs[i] = new_inputs[i];
-    }
-}
-
-double Neuron::activation(){
+double Neuron::activation(double* inputs){
     double BX = this->bias;                         // Start with the bias
     for(int i = 0; i < this->n; i++){
         BX += (weights[i] * inputs[i]);             // Multiply each weight by each input to construct the B'X matrix
@@ -105,10 +96,3 @@ double Neuron::get_bias(){ return this->bias; }
  * @return double* 
  */
 double* Neuron::get_weights(){ return this->weights; }
-
-/**
- * @brief Returns the pointer to the array of inputs.
- * 
- * @return double* 
- */
-double* Neuron::get_inputs(){ return this->inputs; }

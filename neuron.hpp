@@ -6,9 +6,8 @@ class Neuron {
         int n;
         double bias;
         double* weights;
-        double* inputs;
     public:
-        Neuron(int, double, double*, double*);
+        Neuron(int, double, double*);
         ~Neuron();
 
         void set_n(int);                    // Setter functions
@@ -16,11 +15,11 @@ class Neuron {
         void set_weights(double*);
         void set_inputs(double*);
 
-        double activation();                // Getter functions
-        int get_n();
+        int get_n();                        // Getter functions
         double  get_bias();
         double* get_weights();
-        double* get_inputs();
+
+        double activation(double*);
 };
 
 #endif

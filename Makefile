@@ -21,4 +21,8 @@ run: app.out
 	@./app.out
 
 clean:
-	rm -rf *.o *.out callgrind.out*
+ifeq ($(OS),Windows_NT)
+	del /Q *.o *.out *.exe
+else
+	rm -rf *.o *.out *.exe
+endif
