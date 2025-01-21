@@ -1,0 +1,156 @@
+\doxysection{Neuron Class Reference}
+\hypertarget{class_neuron}{}\label{class_neuron}\index{Neuron@{Neuron}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_neuron_ae7ae5821da0df15bb249938b435e9f8d}{Neuron}} (int, double, double \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_neuron}{Neuron}\+:\+: \doxylink{class_neuron}{Neuron} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_neuron_a94a250ce7e167760e593979b899745b1}\label{class_neuron_a94a250ce7e167760e593979b899745b1} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Neuron} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{class_neuron}{Neuron}\+:\+: \doxylink{class_neuron}{Neuron} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_neuron_ac36d700ddd502dcf647943fcb29b2950}{set\+\_\+n}} (int)
+\begin{DoxyCompactList}\small\item\em Setter function to change the value of the number of inputs and weights, n. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_neuron_afd67ea966dfa7e3394f64afcd0592564}{set\+\_\+bias}} (double)
+\begin{DoxyCompactList}\small\item\em Setter function to change the value of the bias. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_neuron_aa875c24c742262ba98b6cbc32d189f57}{set\+\_\+weights}} (double \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Setter function to change the values of the weights. The pointer remains the same, however each element is updated to reflect the new array. \end{DoxyCompactList}\item 
+\Hypertarget{class_neuron_aded1ba5d865bae8ea08f24753e3cf9f7}\label{class_neuron_aded1ba5d865bae8ea08f24753e3cf9f7} 
+void {\bfseries set\+\_\+inputs} (double \texorpdfstring{$\ast$}{*})
+\item 
+int \mbox{\hyperlink{class_neuron_a39c1cf8df05ea4c943de11b2229b6ed5}{get\+\_\+n}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of inputs and weights. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_neuron_a7e7a79ac01749a87ac326f0370b0cb3a}{get\+\_\+bias}} ()
+\begin{DoxyCompactList}\small\item\em Returns the neuron\textquotesingle{}s bias. \end{DoxyCompactList}\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_neuron_ac80375087b2bc8dca7d8918e8c011f26}{get\+\_\+weights}} ()
+\begin{DoxyCompactList}\small\item\em Returns the pointer to the array of weights. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_neuron_a6904e2a17520ddddcfe9367b96d0e82e}{activation}} (double \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Returns the activation of the neuron for a given (pointer to an) array of inputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_neuron_ae7ae5821da0df15bb249938b435e9f8d}\index{Neuron@{Neuron}!Neuron@{Neuron}}
+\index{Neuron@{Neuron}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{Neuron()}{Neuron()}}
+{\footnotesize\ttfamily \label{class_neuron_ae7ae5821da0df15bb249938b435e9f8d} 
+Neuron\+::\+Neuron (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+n}{, }\item[{double}]{new\+\_\+bias}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{new\+\_\+weights}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_neuron}{Neuron}\+:\+: \doxylink{class_neuron}{Neuron} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+n} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_neuron_a6904e2a17520ddddcfe9367b96d0e82e}\index{Neuron@{Neuron}!activation@{activation}}
+\index{activation@{activation}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{activation()}{activation()}}
+{\footnotesize\ttfamily \label{class_neuron_a6904e2a17520ddddcfe9367b96d0e82e} 
+double Neuron\+::activation (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{inputs}{}\end{DoxyParamCaption})}
+
+
+
+Returns the activation of the neuron for a given (pointer to an) array of inputs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\Hypertarget{class_neuron_a7e7a79ac01749a87ac326f0370b0cb3a}\index{Neuron@{Neuron}!get\_bias@{get\_bias}}
+\index{get\_bias@{get\_bias}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{get\_bias()}{get\_bias()}}
+{\footnotesize\ttfamily \label{class_neuron_a7e7a79ac01749a87ac326f0370b0cb3a} 
+double Neuron\+::get\+\_\+bias (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the neuron\textquotesingle{}s bias. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\Hypertarget{class_neuron_a39c1cf8df05ea4c943de11b2229b6ed5}\index{Neuron@{Neuron}!get\_n@{get\_n}}
+\index{get\_n@{get\_n}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{get\_n()}{get\_n()}}
+{\footnotesize\ttfamily \label{class_neuron_a39c1cf8df05ea4c943de11b2229b6ed5} 
+int Neuron\+::get\+\_\+n (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the number of inputs and weights. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{class_neuron_ac80375087b2bc8dca7d8918e8c011f26}\index{Neuron@{Neuron}!get\_weights@{get\_weights}}
+\index{get\_weights@{get\_weights}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{get\_weights()}{get\_weights()}}
+{\footnotesize\ttfamily \label{class_neuron_ac80375087b2bc8dca7d8918e8c011f26} 
+double \texorpdfstring{$\ast$}{*} Neuron\+::get\+\_\+weights (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the pointer to the array of weights. 
+
+\begin{DoxyReturn}{Returns}
+double\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_neuron_afd67ea966dfa7e3394f64afcd0592564}\index{Neuron@{Neuron}!set\_bias@{set\_bias}}
+\index{set\_bias@{set\_bias}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{set\_bias()}{set\_bias()}}
+{\footnotesize\ttfamily \label{class_neuron_afd67ea966dfa7e3394f64afcd0592564} 
+void Neuron\+::set\+\_\+bias (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+bias}{}\end{DoxyParamCaption})}
+
+
+
+Setter function to change the value of the bias. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+bias} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_neuron_ac36d700ddd502dcf647943fcb29b2950}\index{Neuron@{Neuron}!set\_n@{set\_n}}
+\index{set\_n@{set\_n}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{set\_n()}{set\_n()}}
+{\footnotesize\ttfamily \label{class_neuron_ac36d700ddd502dcf647943fcb29b2950} 
+void Neuron\+::set\+\_\+n (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+n}{}\end{DoxyParamCaption})}
+
+
+
+Setter function to change the value of the number of inputs and weights, n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+n} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_neuron_aa875c24c742262ba98b6cbc32d189f57}\index{Neuron@{Neuron}!set\_weights@{set\_weights}}
+\index{set\_weights@{set\_weights}!Neuron@{Neuron}}
+\doxysubsubsection{\texorpdfstring{set\_weights()}{set\_weights()}}
+{\footnotesize\ttfamily \label{class_neuron_aa875c24c742262ba98b6cbc32d189f57} 
+void Neuron\+::set\+\_\+weights (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{new\+\_\+weights}{}\end{DoxyParamCaption})}
+
+
+
+Setter function to change the values of the weights. The pointer remains the same, however each element is updated to reflect the new array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+weights} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+neuron.\+hpp\item 
+neuron.\+cpp\end{DoxyCompactItemize}

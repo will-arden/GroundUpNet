@@ -10,12 +10,12 @@ DIR = $(shell pwd)
 
 all: compile run
 
-main: application.cpp neuron.cpp
-	@$(CC) $(CFLAGS) application.cpp neuron.cpp -o app.out $(LIBS)
+main: application.cpp neuron.cpp layer.cpp
+	@$(CC) $(CFLAGS) application.cpp neuron.cpp layer.cpp -o app.out $(LIBS)
 	@./app.out
 
-compile: application.cpp neuron.cpp
-	@$(CC) $(CFLAGS) application.cpp neuron.cpp -o app.out $(LIBS)
+compile: application.cpp neuron.cpp layer.cpp
+	@$(CC) $(CFLAGS) application.cpp neuron.cpp layer.cpp -o app.out $(LIBS)
 
 run: app.out
 	@./app.out
