@@ -1,42 +1,34 @@
-#include <iostream>
-#include "neuron.hpp"
+#include "model.hpp"
 
-#define N_INPUTS 2
+#include <iostream>
 
 using namespace std;
 
 int main(int argc, char** argv){
 
-    // Create a bias and some weights and inputs for the neuron
-    double my_bias = -10;
-    double my_weights[N_INPUTS] = {30, 30};
-    double my_inputs[N_INPUTS] = {0, 0};
+    // Create a new Model
+    Model my_model;
 
-    double threshold = 0.5;     // Threshold for binary activation
-    int bin;                    // Binary output depending on the threshold
+    // Create some layers
+    my_model.create_input_layer(2, INPUT);
+    my_model.new_layer(2, HIDDEN);
+    my_model.new_layer(1, OUTPUT);
 
-    Neuron OR_Gate(N_INPUTS, my_bias, &my_weights[0]);
-    
-    // Check output (0,0)
-    my_inputs[0] = 0;   my_inputs[1] = 0;
-    if(OR_Gate.activation(&my_inputs[0]) >= threshold) { bin = 1; } else { bin = 0; }
-    cout << "A: 0 | B: 0 | Y: " << bin << endl;
+    // Fully connect the layers
+    my_model.connect();
 
-    // Check output (0,1)
-    my_inputs[0] = 0;   my_inputs[1] = 1;
-    if(OR_Gate.activation(&my_inputs[0]) >= threshold) { bin = 1; } else { bin = 0; }
-    cout << "A: 0 | B: 1 | Y: " << bin << endl;
+    // Create some biases
+    double L1_b[MAX_NEURONS_PER_LAYER];
+    double L2_b[MAX_NEURONS_PER_LAYER];
 
-    // Check output (1,0)
-    my_inputs[0] = 1;   my_inputs[1] = 0;
-    if(OR_Gate.activation(&my_inputs[0]) >= threshold) { bin = 1; } else { bin = 0; }
-    cout << "A: 1 | B: 0 | Y: " << bin << endl;
+    for(int i = 0; i < MAX_NEURONS_PER_LAYER; i++){
+        L1_b[i] = 0;
+        L2_b[i] = 0;
+    }
+    L1_b[0] = -30;  L1_b[1] = -30;
+    L2_b[0] = -10;
 
-    // Check output (1,1)
-    my_inputs[0] = 1;   my_inputs[1] = 1;
-    if(OR_Gate.activation(&my_inputs[0]) >= threshold) { bin = 1; } else { bin = 0; }
-    cout << "A: 1 | B: 1 | Y: " << bin << endl;
-
+    //my_model.get_layer(1)->set_biases(L1_b);          // Causes runtime error
     return 0;
 
 }

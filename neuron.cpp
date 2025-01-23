@@ -1,46 +1,41 @@
+#include "neuron.hpp"
+
 #include <iostream>
 #include <stdexcept>
 #include <cmath>
-#include "neuron.hpp"
 
 using namespace std;
 
 /**
  * @brief Construct a new Neuron:: Neuron object
  * 
+ */
+Neuron::Neuron(){
+    for(int i = 0; i < MAX_NEURONS_PER_LAYER; i++){
+        this->weights[i] = 0;
+    }
+    this->bias = 0;
+}
+
+/**
+ * @brief Construct a new Neuron:: Neuron object
+ * 
  * @param new_n 
  */
-Neuron::Neuron(int new_n, double new_bias, double* new_weights){
-    this->set_n(new_n);                     // Set the value of n
-
-    this->weights = new double[n];          // Create the pointer to the weights array
-
-    this->set_bias(new_bias);               // Initialise the bias
-    this->set_weights(new_weights);         // Initialise the weights
+Neuron::Neuron(int new_n){
+    this->n = new_n;                        // Set the value of n
+    
+    for(int i = 0; i < MAX_NEURONS_PER_LAYER; i++){
+        this->weights[i] = 1;
+    }
+    this->bias = 0;
 }
 
 /**
  * @brief Destroy the Neuron:: Neuron object
  * 
  */
-Neuron::~Neuron(){
-    delete[] this->weights;
-}
-
-/**
- * @brief Setter function to change the value of the number of inputs and weights, n.
- * 
- * @param new_n 
- */
-void Neuron::set_n(int new_n){
-    if(new_n <= 0){ throw invalid_argument("Neuron initialised with a non-positive number of inputs."); }
-    else {
-        this->n = new_n;                        // Initialise the number of inputs and weights
-        
-
-        cout << "Neuron created with " << this->n << " inputs." << endl;
-    }
-};
+Neuron::~Neuron(){}
 
 /**
  * @brief Setter function to change the value of the bias.
@@ -56,8 +51,19 @@ void Neuron::set_bias(double new_bias){ this->bias = new_bias; }
  * @param new_weights 
  */
 void Neuron::set_weights(double* new_weights){
-    for(int i = 0; i < this->n; i++){
+    for(int i = 0; i < MAX_NEURONS_PER_LAYER; i++){
         this->weights[i] = new_weights[i];
+    }
+}
+
+/**
+ * @brief A handy function which connects the neurons horizontally only, rather than being fully connected.
+ * 
+ */
+void Neuron::straight_through_weights(){
+    this->weights[0] = 1;
+    for(int i = 1; i < MAX_NEURONS_PER_LAYER; i++){
+        this->weights[i] = 0;
     }
 }
 
@@ -68,12 +74,14 @@ void Neuron::set_weights(double* new_weights){
  * @return double 
  */
 double Neuron::activation(double* inputs){
-    double BX = this->bias;                         // Start with the bias
-    for(int i = 0; i < this->n; i++){
-        BX += (weights[i] * inputs[i]);             // Multiply each weight by each input to construct the B'X matrix
-    }
-    double activation = 1/(1 + exp(-(BX)));         // Compute the activation using the logistic regression function
-    return activation;
+    if(this->weights == nullptr){ cout << "Error: Space for weights is not yet allocated." << endl; } else {
+        double BX = this->bias;                         // Start with the bias
+        for(int i = 0; i < this->n; i++){
+            BX += (weights[i] * inputs[i]);             // Multiply each weight by each input to construct the B'X matrix
+        }
+        double activation = 1/(1 + exp(-(BX)));         // Compute the activation using the logistic regression function
+        return activation;
+    }   return 0.0;
 }
 
 /**
